@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Carrinho - Headshop Brasil</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="logo">Headshop Brasil</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="catalog.html">Produtos</a></li>
+                <li><a href="cart.html">Carrinho (<span id="cart-count">0</span>)</a></li>
+                <li><a href="admin.html">Painel</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="padding: 20px 5%;">
+        <h2 class="section-title">Meu Carrinho</h2>
+
+        <div id="cart-items-container" style="background: #1a1a1a; padding: 20px; border-radius: 10px;">
+            <!-- Cart items will be listed here -->
+            <p id="empty-cart-msg">Seu carrinho está vazio.</p>
+        </div>
+
+        <div id="cart-summary" style="margin-top: 20px; display: none; text-align: right;">
+            <h3>Total: R$ <span id="cart-total">0,00</span></h3>
+            <br>
+            <a href="checkout.html" class="btn-primary">Finalizar Compra</a>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        function renderCart() {
+            const container = document.getElementById('cart-items-container');
+            const summary = document.getElementById('cart-summary');
+            const totalSpan = document.getElementById('cart-total');
+            const emptyMsg = document.getElementById('empty-cart-msg');
+
+            if (cart.length === 0) {
+                emptyMsg.style.display = 'block';
+                container.innerHTML = '';
+                summary.style.display = 'none';
+                return;
+            }
+
+            emptyMsg.style.display = 'none';
+            summary.style.display = 'block';
+
+            container.innerHTML = cart.map((item, index) => `
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #333; padding: 10px 0;">
+                    <div>
+                        <h4>${item.name}</h4>
+                        <p>R$ ${item.price.toFixed(2).replace('.', ',')}</p>
+                    </div>
+                    <button onclick="removeFromCart(${index})" style="background: var(--accent-color); color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer;">Remover</button>
+                </div>
+            `).join('');
+
+            const total = cart.reduce((sum, item) => sum + item.price, 0);
+            totalSpan.textContent = total.toFixed(2).replace('.', ',');
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            localStorage.setItem('headshop_cart', JSON.stringify(cart));
+            renderCart();
+            updateCartCount();
+        }
+
+        document.addEventListener('DOMContentLoaded', renderCart);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Admin - Headshop Brasil</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <div class="logo">Headshop Admin</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Sair</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main style="padding: 20px 5%;">
+        <h2 class="section-title">Gerenciar Produtos</h2>
+
+        <div style="background: #1a1a1a; padding: 25px; border-radius: 10px; max-width: 600px; margin: 0 auto;">
+            <h3>Adicionar Novo Produto</h3>
+            <br>
+            <form id="add-product-form">
+                <input type="text" id="name" placeholder="Nome do Produto" required
+                    style="padding: 12px; width: 100%; margin-bottom: 10px; background: #222; border: 1px solid #444; color: #fff;">
+                <input type="number" id="price" step="0.01" placeholder="Preço (R$)" required
+                    style="padding: 12px; width: 100%; margin-bottom: 10px; background: #222; border: 1px solid #444; color: #fff;">
+                <input type="text" id="category" placeholder="Categoria" required
+                    style="padding: 12px; width: 100%; margin-bottom: 10px; background: #222; border: 1px solid #444; color: #fff;">
+                <textarea id="description" placeholder="Descrição"
+                    style="padding: 12px; width: 100%; margin-bottom: 10px; background: #222; border: 1px solid #444; color: #fff; height: 100px;"></textarea>
+                <label style="display: block; margin-bottom: 10px;">
+                    <input type="checkbox" id="featured"> Produto em Destaque
+                </label>
+                <button type="submit" class="btn-primary" style="width: 100%;">Salvar Produto</button>
+            </form>
+        </div>
+
+        <br><br>
+        <h3 style="text-align: center;">Produtos Atuais</h3>
+        <div id="admin-product-list" style="margin-top: 20px;">
+            <!-- Admin product items will load here -->
+        </div>
+    </main>
+
+    <script>
+        async function loadProducts() {
+            const res = await fetch('/api/products');
+            const products = await res.json();
+            const list = document.getElementById('admin-product-list');
+
+            list.innerHTML = products.map(p => `
+                <div style="background: #222; padding: 15px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; border-radius: 5px;">
+                    <span>${p.name} - R$ ${p.price.toFixed(2)} (${p.category})</span>
+                    <button style="background: var(--accent-color); border: none; padding: 5px 10px; color: #fff; cursor: pointer; border-radius: 3px;">Excluir</button>
+                </div>
+            `).join('');
+        }
+
+        document.getElementById('add-product-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            // In a real app, this would use POST /api/products
+            alert("Produto salvo com sucesso! (Simulado)");
+            loadProducts();
+        });
+
+        document.addEventListener('DOMContentLoaded', loadProducts);
+    </script>
+</body>
+
+</html>
