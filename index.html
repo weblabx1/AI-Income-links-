@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Lab X | Elite AI Prompt Systems</title>
+    <meta name="description"
+        content="Professionally engineered prompt packs to automate workflows and scale digital income.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;600;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #050505;
+            --surface: #0a0a0a;
+            --accent: #6366f1;
+            --accent-glow: rgba(99, 102, 241, 0.4);
+            --cyan: #06b6d4;
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --glass: rgba(15, 15, 15, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        /* --- Global Animations --- */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 20px var(--accent-glow);
+            }
+
+            50% {
+                box-shadow: 0 0 40px var(--accent-glow);
+            }
+
+            100% {
+                box-shadow: 0 0 20px var(--accent-glow);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            animation: fadeIn 1s forwards cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal-delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .reveal-delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .reveal-delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        /* --- Background Decoration --- */
+        .orb {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            filter: blur(80px);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .orb-1 {
+            top: -10%;
+            right: -5%;
+        }
+
+        .orb-2 {
+            bottom: -10%;
+            left: -5%;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+        }
+
+        .brand-name {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--accent);
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            line-height: 1.1;
+            max-width: 900px;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(180deg, #fff 0%, #aaa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subheadline {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--text-muted);
+            max-width: 650px;
+            margin-bottom: 2rem;
+        }
+
+        .trust-line {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+        }
+
+        .urgency {
+            font-size: 0.8rem;
+            color: var(--cyan);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 0.5rem 1rem;
+            background: rgba(6, 182, 212, 0.1);
+            border-radius: 50px;
+            margin-top: 1rem;
+        }
+
+        /* --- Pricing Grid --- */
+        .pricing-section {
+            padding: 4rem 2rem 8rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent);
+            opacity: 0;
+            transition: var(--transition);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card.popular {
+            border: 1px solid var(--accent);
+            transform: scale(1.05);
+            background: rgba(15, 15, 25, 0.8);
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+        }
+
+        @media (max-width: 1024px) {
+            .card.popular {
+                transform: scale(1);
+            }
+        }
+
+        .badge {
+            align-self: flex-start;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            letter-spacing: 0.05em;
+        }
+
+        .popular .badge {
+            background: var(--accent);
+            color: white;
+        }
+
+        .card-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .price-container {
+            margin: 1.5rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+        }
+
+        .current-price {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            font-weight: 800;
+        }
+
+        .original-price {
+            color: var(--text-muted);
+            text-decoration: line-through;
+            font-size: 1.25rem;
+            opacity: 0.6;
+        }
+
+        .description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 3rem;
+            min-height: 3rem;
+        }
+
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 1.25rem 2rem;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: white;
+            color: black;
+        }
+
+        .popular .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+        }
+
+        .btn:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+        }
+
+        .popular .btn:hover {
+            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        /* --- Footer --- */
+        footer {
+            padding: 4rem 2rem;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+        }
+
+        /* --- Custom Scrollbar --- */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #222;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #333;
+        }
+
+        /* --- Mobile Responsive Fixes --- */
+        @media (max-width: 768px) {
+            .pricing-section {
+                padding-bottom: 4rem;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card.popular {
+                margin: 1rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <section class="hero content-wrapper">
+        <span class="brand-name reveal">Web Lab X</span>
+        <h1 class="reveal reveal-delay-1">Unlock Elite AI Prompt Systems</h1>
+        <p class="subheadline reveal reveal-delay-2">
+            Professionally engineered prompt packs used to generate high-value content, automate workflows, and scale
+            digital income.
+        </p>
+
+        <div class="reveal reveal-delay-3" style="display: flex; flex-direction: column; align-items: center;">
+            <p class="trust-line">Used by creators, entrepreneurs, and AI power users worldwide</p>
+            <span class="urgency">Limited-time launch pricing</span>
+        </div>
+    </section>
+
+    <section class="pricing-section content-wrapper">
+        <div class="pricing-grid">
+
+            <!-- Card 1 -->
+            <div class="card reveal reveal-delay-3">
+                <span class="badge">ENTRY LEVEL</span>
+                <h3 class="card-title">Starter Pack</h3>
+                <div class="price-container">
+                    <span class="current-price">$9</span>
+                    <span class="original-price">$19</span>
+                </div>
+                <p class="description">Perfect foundation to start using high-performance AI prompts instantly</p>
+                <a href="https://weblabx.gumroad.com/l/kxror" class="btn btn-primary">Get Instant Access</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card popular reveal reveal-delay-3">
+                <span class="badge">MOST POPULAR</span>
+                <h3 class="card-title">Intermediate Pack</h3>
+                <div class="price-container">
+                    <span class="current-price">$19</span>
+                    <span class="original-price">$39</span>
+                </div>
+                <p class="description">Powerful prompts designed for serious creators and scalable results</p>
+                <a href="https://weblabx.gumroad.com/l/tfste" class="btn btn-primary">Unlock Full Power</a>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card reveal reveal-delay-3">
+                <span class="badge">ELITE</span>
+                <h3 class="card-title">Advanced Pack</h3>
+                <div class="price-container">
+                    <span class="current-price">$29</span>
+                    <span class="original-price">$79</span>
+                </div>
+                <p class="description">Complete elite prompt systems used for maximum performance and automation</p>
+                <a href="https://weblabx.gumroad.com/l/oilfks" class="btn btn-primary">Get Elite Access</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; Web Lab X &mdash; Premium AI Systems</p>
+    </footer>
+
+</body>
+
+</html>
