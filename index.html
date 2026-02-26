@@ -4,9 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Lab X | Elite AI Prompt Systems</title>
+    <title>Web Lab X | Turn AI Into Income - Elite Prompt Systems</title>
     <meta name="description"
-        content="Professionally engineered prompt packs to automate workflows and scale digital income.">
+        content="Ready-to-use AI prompt packs tested to generate results. Copy, paste, profit and build passive income streams today.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -54,20 +54,6 @@
             }
         }
 
-        @keyframes glow {
-            0% {
-                box-shadow: 0 0 20px var(--accent-glow);
-            }
-
-            50% {
-                box-shadow: 0 0 40px var(--accent-glow);
-            }
-
-            100% {
-                box-shadow: 0 0 20px var(--accent-glow);
-            }
-        }
-
         .reveal {
             opacity: 0;
             animation: fadeIn 1s forwards cubic-bezier(0.16, 1, 0.3, 1);
@@ -85,13 +71,17 @@
             animation-delay: 0.6s;
         }
 
+        .reveal-delay-4 {
+            animation-delay: 0.8s;
+        }
+
         /* --- Background Decoration --- */
         .orb {
             position: fixed;
-            width: 400px;
-            height: 400px;
+            width: 500px;
+            height: 500px;
             background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
-            filter: blur(80px);
+            filter: blur(100px);
             z-index: -1;
             pointer-events: none;
         }
@@ -106,15 +96,21 @@
             left: -5%;
         }
 
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         /* --- Hero Section --- */
         .hero {
-            min-height: 100vh;
+            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2rem;
+            padding: 4rem 2rem;
             position: relative;
         }
 
@@ -122,123 +118,150 @@
             font-family: 'Outfit', sans-serif;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.3em;
+            letter-spacing: 0.4em;
             color: var(--accent);
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
             display: block;
         }
 
         h1 {
             font-family: 'Outfit', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-size: clamp(2.8rem, 9vw, 5.5rem);
             font-weight: 800;
-            line-height: 1.1;
-            max-width: 900px;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(180deg, #fff 0%, #aaa 100%);
+            line-height: 1.05;
+            max-width: 1000px;
+            margin-bottom: 2rem;
+            background: linear-gradient(180deg, #fff 30%, #777 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .subheadline {
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
             color: var(--text-muted);
-            max-width: 650px;
-            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-bottom: 3rem;
         }
 
-        .trust-line {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            opacity: 0.7;
+        /* --- CTA Buttons --- */
+        .btn {
+            display: inline-block;
+            text-decoration: none;
+            padding: 1.2rem 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(99, 102, 241, 0.5);
+            filter: brightness(1.1);
+        }
+
+        /* --- Benefits Section --- */
+        .benefits {
+            padding: 6rem 0;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .benefit-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
             margin-bottom: 0.5rem;
         }
 
-        .urgency {
-            font-size: 0.8rem;
-            color: var(--cyan);
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            padding: 0.5rem 1rem;
-            background: rgba(6, 182, 212, 0.1);
-            border-radius: 50px;
-            margin-top: 1rem;
+        .benefit-text {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: #fff;
         }
 
-        /* --- Pricing Grid --- */
-        .pricing-section {
-            padding: 4rem 2rem 8rem;
-            max-width: 1200px;
-            margin: 0 auto;
+        /* --- Pricing Section --- */
+        .pricing {
+            padding: 8rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 1rem;
         }
 
         .pricing-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            align-items: center;
+            gap: 2.5rem;
+            align-items: stretch;
         }
 
         .card {
             background: var(--glass);
             backdrop-filter: blur(20px);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 3rem 2rem;
+            border-radius: 28px;
+            padding: 3.5rem 2.5rem;
             display: flex;
             flex-direction: column;
             transition: var(--transition);
             position: relative;
-            overflow: hidden;
         }
 
         .card:hover {
             transform: translateY(-10px);
             border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-        }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at top right, rgba(99, 102, 241, 0.1), transparent);
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .card:hover::before {
-            opacity: 1;
         }
 
         .card.popular {
-            border: 1px solid var(--accent);
+            border: 2px solid var(--accent);
+            background: rgba(15, 15, 30, 0.9);
             transform: scale(1.05);
-            background: rgba(15, 15, 25, 0.8);
-            box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
-        }
-
-        @media (max-width: 1024px) {
-            .card.popular {
-                transform: scale(1);
-            }
+            z-index: 2;
         }
 
         .badge {
             align-self: flex-start;
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 0.4rem 0.8rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 0.5rem 1rem;
             border-radius: 50px;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.08);
             color: var(--text-muted);
             margin-bottom: 2rem;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
         }
 
         .popular .badge {
@@ -248,13 +271,13 @@
 
         .card-title {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.5rem;
+            font-size: 1.75rem;
             font-weight: 700;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
         }
 
         .price-container {
-            margin: 1.5rem 0;
+            margin: 2rem 0;
             display: flex;
             align-items: baseline;
             gap: 0.75rem;
@@ -262,170 +285,329 @@
 
         .current-price {
             font-family: 'Outfit', sans-serif;
-            font-size: 3rem;
+            font-size: 3.5rem;
             font-weight: 800;
+            color: #fff;
         }
 
         .original-price {
             color: var(--text-muted);
             text-decoration: line-through;
-            font-size: 1.25rem;
-            opacity: 0.6;
+            font-size: 1.4rem;
+            opacity: 0.5;
         }
 
-        .description {
+        .card-description {
             color: var(--text-muted);
-            font-size: 0.95rem;
-            margin-bottom: 3rem;
-            min-height: 3rem;
+            margin-bottom: 2.5rem;
+            flex-grow: 1;
         }
 
-        .btn {
-            display: inline-block;
-            text-decoration: none;
-            padding: 1.25rem 2rem;
-            border-radius: 12px;
+        /* --- Social Proof --- */
+        .social-proof {
+            padding: 8rem 2rem;
             text-align: center;
+        }
+
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: left;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #eee;
+        }
+
+        .testimonial-author {
             font-weight: 700;
-            font-size: 1rem;
-            transition: var(--transition);
-            position: relative;
-            z-index: 1;
+            color: var(--accent);
         }
 
-        .btn-primary {
-            background: white;
-            color: black;
+        .guarantee {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            background: rgba(34, 197, 94, 0.1);
+            color: #4ade80;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            border: 1px solid rgba(34, 197, 94, 0.2);
         }
 
-        .popular .btn-primary {
-            background: var(--accent);
-            color: white;
-            box-shadow: 0 10px 20px rgba(99, 102, 241, 0.2);
+        /* --- Urgency Timer --- */
+        .urgency-section {
+            padding: 6rem 2rem;
+            background: linear-gradient(to bottom, transparent, rgba(99, 102, 241, 0.05));
+            text-align: center;
         }
 
-        .btn:hover {
-            transform: scale(1.02);
-            filter: brightness(1.1);
+        .urgency-banner {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 2rem;
+            font-family: 'Outfit', sans-serif;
         }
 
-        .popular .btn:hover {
-            box-shadow: 0 15px 30px rgba(99, 102, 241, 0.4);
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .countdown-item {
+            background: var(--glass);
+            border: 1px solid var(--glass-border);
+            padding: 1rem;
+            border-radius: 12px;
+            min-width: 80px;
+        }
+
+        .timer-val {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            font-family: 'Outfit', sans-serif;
+            color: var(--accent);
+        }
+
+        .timer-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            letter-spacing: 0.1em;
         }
 
         /* --- Footer --- */
         footer {
-            padding: 4rem 2rem;
+            padding: 6rem 2rem;
             text-align: center;
             border-top: 1px solid var(--glass-border);
         }
 
-        footer p {
-            font-size: 0.8rem;
+        .footer-cta {
+            margin-bottom: 3rem;
+        }
+
+        .footer-copy {
+            font-size: 0.85rem;
             color: var(--text-muted);
-            letter-spacing: 0.05em;
+            opacity: 0.6;
         }
 
-        /* --- Custom Scrollbar --- */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--bg);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: #222;
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: #333;
-        }
-
-        /* --- Mobile Responsive Fixes --- */
-        @media (max-width: 768px) {
-            .pricing-section {
-                padding-bottom: 4rem;
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .card.popular {
+                transform: scale(1);
             }
+        }
 
+        @media (max-width: 768px) {
             .pricing-grid {
                 grid-template-columns: 1fr;
             }
 
-            .card.popular {
-                margin: 1rem 0;
+            .countdown {
+                gap: 0.5rem;
+            }
+
+            .countdown-item {
+                min-width: 65px;
+                padding: 0.5rem;
+            }
+
+            .timer-val {
+                font-size: 1.8rem;
             }
         }
     </style>
 </head>
 
 <body>
-
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
 
-    <section class="hero content-wrapper">
+    <section class="hero container">
         <span class="brand-name reveal">Web Lab X</span>
-        <h1 class="reveal reveal-delay-1">Unlock Elite AI Prompt Systems</h1>
+        <h1 class="reveal reveal-delay-1">Turn AI Into Income — Starting Today</h1>
         <p class="subheadline reveal reveal-delay-2">
-            Professionally engineered prompt packs used to generate high-value content, automate workflows, and scale
-            digital income.
+            Ready-to-use prompt packs tested to generate results. Copy, paste, profit.
         </p>
-
-        <div class="reveal reveal-delay-3" style="display: flex; flex-direction: column; align-items: center;">
-            <p class="trust-line">Used by creators, entrepreneurs, and AI power users worldwide</p>
-            <span class="urgency">Limited-time launch pricing</span>
+        <div class="reveal reveal-delay-3">
+            <a href="#pricing" class="btn btn-primary">Get Your Pack Now</a>
         </div>
     </section>
 
-    <section class="pricing-section content-wrapper">
-        <div class="pricing-grid">
+    <section class="benefits">
+        <div class="container">
+            <div class="benefits-grid">
+                <div class="benefit-item reveal">
+                    <span class="benefit-icon">🚀</span>
+                    <span class="benefit-text">Launch products instantly</span>
+                </div>
+                <div class="benefit-item reveal reveal-delay-1">
+                    <span class="benefit-icon">📈</span>
+                    <span class="benefit-text">Automate marketing & sales</span>
+                </div>
+                <div class="benefit-item reveal reveal-delay-2">
+                    <span class="benefit-icon">💰</span>
+                    <span class="benefit-text">Build passive income streams</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <!-- Card 1 -->
-            <div class="card reveal reveal-delay-3">
-                <span class="badge">ENTRY LEVEL</span>
+    <section id="pricing" class="pricing container">
+        <div class="section-header reveal">
+            <h2>Select Your Path to AI Profit</h2>
+            <p class="subheadline" style="margin: 0 auto;">Choose the level of automation and speed you need.</p>
+        </div>
+        <div class="pricing-grid">
+            <!-- Starter -->
+            <div class="card reveal reveal-delay-1">
+                <span class="badge">Essential</span>
                 <h3 class="card-title">Starter Pack</h3>
                 <div class="price-container">
                     <span class="current-price">$9</span>
                     <span class="original-price">$19</span>
                 </div>
-                <p class="description">Perfect foundation to start using high-performance AI prompts instantly</p>
-                <a href="https://weblabx.gumroad.com/l/kxror" class="btn btn-primary">Get Instant Access</a>
+                <p class="card-description">The perfect entry point. Get the core prompts to start generating
+                    high-quality content and basic workflows.</p>
+                <a href="https://weblabx.gumroad.com/l/kxror" class="btn btn-primary">Grab Your Pack Today</a>
             </div>
 
-            <!-- Card 2 -->
-            <div class="card popular reveal reveal-delay-3">
-                <span class="badge">MOST POPULAR</span>
+            <!-- Intermediate -->
+            <div class="card popular reveal">
+                <span class="badge">Most Popular</span>
                 <h3 class="card-title">Intermediate Pack</h3>
                 <div class="price-container">
                     <span class="current-price">$19</span>
                     <span class="original-price">$39</span>
                 </div>
-                <p class="description">Powerful prompts designed for serious creators and scalable results</p>
-                <a href="https://weblabx.gumroad.com/l/tfste" class="btn btn-primary">Unlock Full Power</a>
+                <p class="card-description">Engineered for growth. Advanced systems for marketing automation, sales
+                    funnel generation, and scaled content creation.</p>
+                <a href="https://weblabx.gumroad.com/l/tfste" class="btn btn-primary">Grab Your Pack Today</a>
             </div>
 
-            <!-- Card 3 -->
-            <div class="card reveal reveal-delay-3">
-                <span class="badge">ELITE</span>
+            <!-- Advanced -->
+            <div class="card reveal reveal-delay-2">
+                <span class="badge">Elite</span>
                 <h3 class="card-title">Advanced Pack</h3>
                 <div class="price-container">
                     <span class="current-price">$29</span>
                     <span class="original-price">$79</span>
                 </div>
-                <p class="description">Complete elite prompt systems used for maximum performance and automation</p>
-                <a href="https://weblabx.gumroad.com/l/oilfks" class="btn btn-primary">Get Elite Access</a>
+                <p class="card-description">The full machine. Elite strategies for building entire digital products and
+                    automated income engines from scratch.</p>
+                <a href="https://weblabx.gumroad.com/l/oilfks" class="btn btn-primary">Grab Your Pack Today</a>
             </div>
+        </div>
+    </section>
 
+    <section class="social-proof container">
+        <div class="testimonials">
+            <div class="testimonial-card reveal">
+                <p class="testimonial-text">"These prompts saved me weeks of work. I was able to launch my first
+                    campaign in under 48 hours."</p>
+                <p class="testimonial-author">— John D., Digital Entrepreneur</p>
+            </div>
+            <div class="testimonial-card reveal reveal-delay-1">
+                <p class="testimonial-text">"Finally, a shortcut to AI income. The frameworks here are lightyears ahead
+                    of anything I've seen on YouTube."</p>
+                <p class="testimonial-author">— Sarah M., Freelancer</p>
+            </div>
+        </div>
+        <div class="guarantee reveal reveal-delay-2">
+            <span>🛡️</span> 30-day money-back guarantee. No questions asked.
+        </div>
+    </section>
+
+    <section class="urgency-section container">
+        <h2 class="urgency-banner reveal">Limited launch pricing — don’t miss out.</h2>
+        <div class="countdown reveal reveal-delay-1" id="timer">
+            <div class="countdown-item"><span class="timer-val" id="days">00</span><span class="timer-label">Days</span>
+            </div>
+            <div class="countdown-item"><span class="timer-val" id="hours">00</span><span
+                    class="timer-label">Hours</span></div>
+            <div class="countdown-item"><span class="timer-val" id="mins">00</span><span class="timer-label">Mins</span>
+            </div>
+            <div class="countdown-item"><span class="timer-val" id="secs">00</span><span class="timer-label">Secs</span>
+            </div>
+        </div>
+        <div class="reveal reveal-delay-2">
+            <a href="#pricing" class="btn btn-primary" style="padding: 1.5rem 4rem; font-size: 1.3rem;">Claim Your
+                Discount Before It's Gone</a>
         </div>
     </section>
 
     <footer>
-        <p>&copy; Web Lab X &mdash; Premium AI Systems</p>
+        <div class="footer-cta reveal">
+            <a href="#pricing"
+                style="color: #fff; text-decoration: none; font-weight: 800; font-family: 'Outfit'; font-size: 1.2rem;">Get
+                Your Pack Today — Web Lab X</a>
+        </div>
+        <p class="footer-copy">&copy; 2026 Web Lab X. All rights reserved. Precision Engineered AI Systems.</p>
     </footer>
 
+    <script>
+        // Simple Countdown Timer Logic
+        function updateTimer() {
+            // Set end date to 48 hours from now for demonstration
+            let endDate = localStorage.getItem('timer_end');
+            if (!endDate) {
+                endDate = new Date().getTime() + (48 * 60 * 60 * 1000);
+                localStorage.setItem('timer_end', endDate);
+            }
+
+            const now = new Date().getTime();
+            const distance = endDate - now;
+
+            if (distance < 0) {
+                document.getElementById('timer').innerHTML = "OFFER EXPIRED";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+            document.getElementById('mins').innerText = minutes.toString().padStart(2, '0');
+            document.getElementById('secs').innerText = seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // Intersection Observer for Reveal Animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible'); // If we wanted more complex CSS
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
 </body>
 
 </html>
